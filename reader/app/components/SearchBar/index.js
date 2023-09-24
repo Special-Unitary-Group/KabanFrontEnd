@@ -1,39 +1,31 @@
-
 import Image from "next/image";
 import axios from 'axios'
 function InputWithButtonAndAvatar(props) {
     const { handleVisible } = props;
 
-
     // Función que maneja el click del botón
-    const onSubmit = async (e) => {
-        e.preventDefault();
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const form = document.querySelector('form')
+        const data = new FormData(form);
+        const prompt = document.querySelector('#prompt').value
+        console.log(prompt)
+        data.append('input_data',prompt)
 
-        // const dataToSend = {
-        //     input_data: e.target.value
-        // }
-        // const response = await fetch('https://hackmty2023-9f808c49a889.herokuapp.com/enviar', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(dataToSend),
-        // });
-        // Handle response if necessary
-        axios.post('https://hackmty2023-9f808c49a889.herokuapp.com/enviar', dataToSend)
+        axios.post('https://hackmty2023-9f808c49a889.herokuapp.com/enviar/', data)
             .then((response) => {
                 console.log(response.data);
             })
             .catch((error) => {
                 console.error("Error al hacer la solicitud:", error);
             });
-        // ...
     }
 
     return (
         <form
             className=" w-96"
-            onSubmit={onSubmit}>
+            onSubmit={onSubmit}
+            method="POST">
             <div className="relative bg-white border rounded-lg shadow-sm focus-within:ring focus-within:ring-opacity-50 w-full mt-10">
 
                 {/* Avatar a la izquierda */}
@@ -52,6 +44,8 @@ function InputWithButtonAndAvatar(props) {
                     type="text"
                     className=" text-gray-700 pl-14 pr-20 w-full py-2 rounded-lg bg-transparent border-none focus:ring-0 focus:outline-none"
                     placeholder="Escribe aquí..."
+                    id="prompt"
+                    name="prompt"
                 />
 
                 {/* Botón dentro del input, a la derecha */}
