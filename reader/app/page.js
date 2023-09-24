@@ -16,12 +16,6 @@ export default function Home() {
     console.log('a')
   };
 
-  useEffect(() => {
-    const res = fetch('https://hackmty2023-9f808c49a889.herokuapp.com/')
-    .then(res => res.json()).
-    then(res => console.log(res))
-
-  }, [])
   const paperContent = [
 
     {

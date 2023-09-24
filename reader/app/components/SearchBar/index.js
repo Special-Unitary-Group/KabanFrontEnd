@@ -4,12 +4,12 @@ function InputWithButtonAndAvatar(props) {
 
 
     // Función que maneja el click del botón
-    const handleSend = async (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget)
         const response = await fetch('https://hackmty2023-9f808c49a889.herokuapp.com/enviar', {
             method: 'POST',
-            body: formData,
+            body:'input_data:'+formData,
         })
         // Handle response if necessary
         const data = await response.json()
@@ -18,8 +18,10 @@ function InputWithButtonAndAvatar(props) {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <div className="relative bg-white border rounded-lg shadow-sm focus-within:ring focus-within:ring-opacity-50 w-1/2 mt-10">
+        <form 
+        className=" w-96"
+        onSubmit={onSubmit}>
+            <div className="relative bg-white border rounded-lg shadow-sm focus-within:ring focus-within:ring-opacity-50 w-full mt-10">
 
                 {/* Avatar a la izquierda */}
                 <div className="absolute left-0 inset-y-0 flex items-center pl-3">
