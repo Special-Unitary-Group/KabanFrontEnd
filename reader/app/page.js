@@ -1,7 +1,7 @@
 "use client";
 import Image from 'next/image'
 import { IoSend } from "react-icons/io5";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NextUIProvider } from "@nextui-org/react";
 
 import Card from './components/card';
@@ -16,6 +16,12 @@ export default function Home() {
     console.log('a')
   };
 
+  useEffect(() => {
+    const res = fetch('https://hackmty2023-9f808c49a889.herokuapp.com/')
+    .then(res => res.json()).
+    then(res => console.log(res))
+
+  }, [])
   const paperContent = [
 
     {
