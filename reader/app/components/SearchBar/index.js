@@ -42,16 +42,6 @@ function InputWithButtonAndAvatar(props) {
     return (
         <>
 
-            {content.length > 1 ? paperContent.map((articulo, index) =>
-                <Card key={index}
-                    title={articulo.title}
-                    abstract={content}
-                    author={articulo.author}
-                    date={articulo.date}
-                    url={articulo.url} />)
-                :
-                null
-            }
 
             <form
                 className=" w-96"
