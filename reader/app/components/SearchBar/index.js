@@ -1,4 +1,6 @@
+
 import Image from "next/image";
+import axios from 'axios'
 function InputWithButtonAndAvatar(props) {
     const { handleVisible } = props;
 
@@ -6,27 +8,32 @@ function InputWithButtonAndAvatar(props) {
     // Función que maneja el click del botón
     const onSubmit = async (e) => {
         e.preventDefault();
-        
-        const dataToSend = {
-            input_data: e.target.value
-        }
-        const response = await fetch('https://hackmty2023-9f808c49a889.herokuapp.com/enviar', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataToSend),
-        });
+
+        // const dataToSend = {
+        //     input_data: e.target.value
+        // }
+        // const response = await fetch('https://hackmty2023-9f808c49a889.herokuapp.com/enviar', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(dataToSend),
+        // });
         // Handle response if necessary
-        const data = await response.json()
-        console.log(data)
+        axios.post('https://hackmty2023-9f808c49a889.herokuapp.com/enviar', dataToSend)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.error("Error al hacer la solicitud:", error);
+            });
         // ...
     }
 
     return (
-        <form 
-        className=" w-96"
-        onSubmit={onSubmit}>
+        <form
+            className=" w-96"
+            onSubmit={onSubmit}>
             <div className="relative bg-white border rounded-lg shadow-sm focus-within:ring focus-within:ring-opacity-50 w-full mt-10">
 
                 {/* Avatar a la izquierda */}
