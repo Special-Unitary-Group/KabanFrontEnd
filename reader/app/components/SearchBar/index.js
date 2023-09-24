@@ -15,13 +15,11 @@ function InputWithButtonAndAvatar(props) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: {
-                "input_data": "elValorDeE.target.valueAqui"
-            },
+            body: JSON.stringify(dataToSend),
         });
         // Handle response if necessary
         const data = await response.json()
-        console.log(formData,data)
+        console.log(data)
         // ...
     }
 
