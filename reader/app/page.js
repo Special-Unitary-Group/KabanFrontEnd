@@ -11,6 +11,8 @@ import Dropdown from './components/Dropdown';
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
   const [visible, setVisible] = useState(true);
+  const [type, setType] = useState('');
+  let promptResponse = ""
   const handleVisible = () => {
     setVisible(false);
     console.log('a')
@@ -45,7 +47,7 @@ export default function Home() {
     <NextUIProvider>
       <NavBar />
       <div className='flex flex-col items-center justify-center h-full mt-14 pb-10'>
-        <Dropdown visible={visible} />
+        <Dropdown visible={visible} type={type} setType={setType} />
         <Image
           className={`${visible ? '' : 'hidden'}`}
           src="/documents.png"
@@ -53,17 +55,8 @@ export default function Home() {
           height={300}
           alt="Documents image" />
 
-        {!visible ? paperContent.map((articulo, index) =>
-          <Card key={index}
-            title={articulo.title}
-            abstract={articulo.abstract}
-            author={articulo.author}
-            date={articulo.date}
-            url={articulo.url} />)
-          :
-          null
-        }
-        <SearchBar handleVisible={handleVisible} />
+        
+        <SearchBar handleVisible={handleVisible} type={type}/>
       </div>
     </NextUIProvider>
   )

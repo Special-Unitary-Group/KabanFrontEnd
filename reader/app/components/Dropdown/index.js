@@ -3,7 +3,7 @@
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 
 export default function App(props) {
-  const {visible} = props;
+  const {visible, type, setType} = props;
     return (
        
     <Dropdown className={`bg-blue-900 rounded-xl w-80 h-40 ${visible ? '' : 'hidden'}`}>
@@ -18,7 +18,7 @@ export default function App(props) {
       <DropdownMenu aria-label="Static Actions" className="">
         <DropdownItem key="new" className="hover:bg-blue-600 text-gray-50 ">Find</DropdownItem>
         <DropdownItem key="copy" className="hover:bg-blue-600 text-gray-50 ">Key Words</DropdownItem>
-        <DropdownItem key="edit" className="hover:bg-blue-600 text-gray-50" >Extract</DropdownItem>
+        <DropdownItem key="edit" className="hover:bg-blue-600 text-gray-50  " >Extract</DropdownItem>
         <DropdownItem key="edit" className="hover:bg-blue-600 text-gray-50 border-b-1">Rank</DropdownItem>
       </DropdownMenu>
     </Dropdown>
