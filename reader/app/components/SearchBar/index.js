@@ -10,7 +10,7 @@ function InputWithButtonAndAvatar(props) {
         const dataToSend = {
             input_data: e.target.value
         }
-        const response = await fetch('https://cors-anywhere.herokuapp.com/https://hackmty2023-9f808c49a889.herokuapp.com/enviar', {
+        const response = await fetch('https://hackmty2023-9f808c49a889.herokuapp.com/enviar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
