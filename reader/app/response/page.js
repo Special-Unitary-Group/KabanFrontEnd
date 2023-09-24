@@ -21,17 +21,12 @@ export default function PromptResponse() {
             <NavBar />
             <div className="bg-gray-100 flex flex-col w-full justify-center items-center mt-10">
                 <Card key={1}
-                    title={`Personas`}
+                    title={prompt}
                     abstract={response}
-                    author={`Autor`}
-                    date={`Fecha`}
-                    url={`URL`} />
-                <Card key={1}
-                    title={`Uses of thasdasd`}
-                    abstract={response}
-                    author={`Autor`}
-                    date={`Fecha`}
-                    url={`URL`} id={`note`}/>
+                    author={`Harsh Gupta`}
+                    date={`Thu, 21 Sep 2023`}
+                    url={`https://arxiv.org/abs/2309.12281`} />
+               
             </div>
         </>
 

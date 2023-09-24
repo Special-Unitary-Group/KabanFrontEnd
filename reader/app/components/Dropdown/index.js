@@ -4,6 +4,10 @@ import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@ne
 
 export default function App(props) {
   const {visible, type, setType} = props;
+  const handleTypeChange = (kind) =>{
+    console.log('kind', kind)
+    setType(kind)
+  }
     return (
        
     <Dropdown className={`bg-blue-900 rounded-xl w-80 h-40 ${visible ? '' : 'hidden'}`}>
@@ -16,10 +20,8 @@ export default function App(props) {
         </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions" className="">
-        <DropdownItem key="new" className="hover:bg-blue-600 text-gray-50 ">Find</DropdownItem>
-        <DropdownItem key="copy" className="hover:bg-blue-600 text-gray-50 ">Key Words</DropdownItem>
-        <DropdownItem key="edit" className="hover:bg-blue-600 text-gray-50  " >Extract</DropdownItem>
-        <DropdownItem key="edit" className="hover:bg-blue-600 text-gray-50 border-b-1">Rank</DropdownItem>
+        <DropdownItem key="new" className="hover:bg-blue-600 text-gray-50"    onClick={()=>{handleTypeChange('Find')}}  >Find</DropdownItem>
+        <DropdownItem key="copy" className="hover:bg-blue-600 text-gray-50"   onClick={()=>{handleTypeChange('Ranker')}}  >Ranked</DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );
