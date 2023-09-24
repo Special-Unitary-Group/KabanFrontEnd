@@ -5,7 +5,7 @@ function InputWithButtonAndAvatar(props) {
 
     let content = ""
     const urls = {
-        'Find': 'https://hackmty2023-9f808c49a889.herokuapp.com/enviar/',
+        'Find': '',
         'Ranked': 'https://hackmty2023-9f808c49a889.herokuapp.com/ranked/'
     }
     // Función que maneja el click del botón
@@ -17,7 +17,7 @@ function InputWithButtonAndAvatar(props) {
         const prompt = document.querySelector('#prompt').value
         data.append('input_data', prompt)
 
-        axios.post(urls[type], data)
+        axios.post("https://hackmty2023-9f808c49a889.herokuapp.com/enviar/", data)
             .then((response) => {
                 console.log(response.data);
                 //promptResponse = response.data
