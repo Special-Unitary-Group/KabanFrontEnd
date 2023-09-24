@@ -6,11 +6,17 @@ function InputWithButtonAndAvatar(props) {
     // Función que maneja el click del botón
     const onSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget)
+        
+        const dataToSend = {
+            input_data: e.target.value
+        }
         const response = await fetch('https://hackmty2023-9f808c49a889.herokuapp.com/enviar', {
             method: 'POST',
-            body:JSON.stringify('input_data:'+formData),
-        })
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataToSend),
+        });
         // Handle response if necessary
         const data = await response.json()
         console.log(formData,data)
