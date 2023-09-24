@@ -9,11 +9,11 @@ function InputWithButtonAndAvatar(props) {
         const formData = new FormData(e.currentTarget)
         const response = await fetch('https://hackmty2023-9f808c49a889.herokuapp.com/enviar', {
             method: 'POST',
-            body:'input_data:'+formData,
+            body:JSON.stringify('input_data:'+formData),
         })
         // Handle response if necessary
         const data = await response.json()
-        console.log(data)
+        console.log(formData,data)
         // ...
     }
 
