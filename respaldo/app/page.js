@@ -4,10 +4,10 @@ import { IoSend } from "react-icons/io5";
 import { useEffect, useState } from 'react';
 import { NextUIProvider } from "@nextui-org/react";
 
-import Card from './components/card';
-import SearchBar from "./components/SearchBar";
-import NavBar from './components/NavBar';
-import Dropdown from './components/Dropdown';
+import Card from '../kaban/app/components/card';
+import SearchBar from "../kaban/app/components/SearchBar";
+import NavBar from '../kaban/app/components/NavBar';
+import Dropdown from '../kaban/app/components/Dropdown';
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
   const [visible, setVisible] = useState(true);

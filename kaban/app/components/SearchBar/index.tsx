@@ -1,43 +1,43 @@
 import Image from "next/image";
 import axios from 'axios'
-function InputWithButtonAndAvatar(props) {
-    const { handleVisible, type } = props;
+import { ISearchBar } from "@/app/interfaces/ISearchBar";
+const InputWithButtonAndAvatar: React.FC<ISearchBar> = ({handleVisible, type}) => {
 
-    let content = ""
     const urls = {
         'Find': '',
         'Ranked': 'https://hackmty2023-9f808c49a889.herokuapp.com/ranked/'
     }
-    // Función que maneja el click del botón
-    const onSubmit = async (event) => {
+    // // Función que maneja el click del botón
+    // const onSubmit = async (event: Event) => {
         
-        event.preventDefault();
-        const form = document.querySelector('form')
-        const data = new FormData(form);
-        const prompt = document.querySelector('#prompt').value
-        data.append('input_data', prompt)
+    //     event.preventDefault();
+    //     const form = document.querySelector('form')
+    //     const data = new FormData(form);
+        
+    //     const prompt = document.querySelector('#prompt').value
+    //     data.append('input_data', prompt)
 
-        axios.post("https://hackmty2023-9f808c49a889.herokuapp.com/enviar/", data)
-            .then((response) => {
-                console.log(response.data);
-                //promptResponse = response.data
-                content = response.data.response
-                console.log(response.data.response)
+    //     axios.post("https://hackmty2023-9f808c49a889.herokuapp.com/enviar/", data)
+    //         .then((response) => {
+    //             console.log(response.data);
+    //             //promptResponse = response.data
+    //             content = response.data.response
+    //             console.log(response.data.response)
 
-                // Save prompt value in URL
-                const searchParams = new URLSearchParams(window.location.search);
-                searchParams.set('prompt', prompt);
-                searchParams.set('response', response.data.response);
-                const newUrl = window.location.pathname + '?' + searchParams.toString();
-                window.history.pushState(null, '', newUrl);
+    //             // Save prompt value in URL
+    //             const searchParams = new URLSearchParams(window.location.search);
+    //             searchParams.set('prompt', prompt);
+    //             searchParams.set('response', response.data.response);
+    //             const newUrl = window.location.pathname + '?' + searchParams.toString();
+    //             window.history.pushState(null, '', newUrl);
 
-                // Redirect to new page with same query string
-                window.location.href = '/response' + window.location.search;
-            })
-            .catch((error) => {
-                console.error("Error al hacer la solicitud:", error);
-            });
-    }
+    //             // Redirect to new page with same query string
+    //             window.location.href = '/response' + window.location.search;
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error al hacer la solicitud:", error);
+    //         });
+    // }
 
     return (
         <>
@@ -45,7 +45,7 @@ function InputWithButtonAndAvatar(props) {
 
             <form
                 className=" w-96"
-                onSubmit={onSubmit}
+                //onSubmit={onSubmit}
                 method="POST">
                 <div className="relative bg-white border rounded-lg shadow-sm focus-within:ring focus-within:ring-opacity-50 w-full mt-10">
 
