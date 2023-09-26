@@ -1,40 +1,23 @@
 import React from "react";
-
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
 import Image from 'next/image'
 export default function App() {
   return (
-    <Navbar position="static" className="text-gray-900">
-      <NavbarBrand>
-        <Image src="/logo.png" width={100} height={100} alt="ACME" />
-      </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#" className="hover:text-blue-600">
-            Extract
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page" className="hover:text-blue-600">
-            Discover
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#" className="hover:text-blue-600">
-            Integrate
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#" className="hover:text-blue-600">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat" className="hover:text-blue-600">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-    </Navbar>
+
+    <nav className="flex flex-row justify-between items-center pt-5 pl-10 pr-10">
+        <section>
+            <Image src="/logo.png" alt="Picture of the author" width={100} height={100} />
+        </section>
+        <section>
+          <ul className="flex flex-row gap-10">
+            <li><a href="#" className="hover:text-blue-500">Rediscover</a></li>
+            <li><a href="#" className="hover:text-blue-500">Explore</a></li>
+            <li><a href="/loadpapers" className="hover:text-blue-500">Load Papers</a></li>
+          </ul>
+        </section>
+        <section className="flex justify-start">
+          <a className="">Sign In</a>
+        </section>
+    </nav>
+   
   );
 }

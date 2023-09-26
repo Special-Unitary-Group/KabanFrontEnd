@@ -12,40 +12,13 @@ export default function Home() {
   const [inputValue, setInputValue] = useState('');
   const [visible, setVisible] = useState(true);
   const [type, setType] = useState('');
-  let promptResponse = ""
   const handleVisible = () => {
     setVisible(false);
     console.log('a')
   };
 
-  const paperContent = [
-
-    {
-      title: "El Futuro de la Inteligencia Artificial",
-      abstract: "La inteligencia artificial (IA) está transformando rápidamente el mundo a nuestro alrededor. Este artículo explora las tendencias emergentes y las predicciones para el futuro de la IA.",
-      author: "Jane Smith",
-      date: "20 de Septiembre, 2023",
-      url: "https://ejemplo.com/articulo1"
-    },
-    {
-      title: "Sostenibilidad y Tecnología: Una combinación poderosa",
-      abstract: "Exploramos cómo las innovaciones tecnológicas están impulsando prácticas más sostenibles en diversas industrias y cómo podemos aprovecharlas para un futuro más verde.",
-      author: "Carlos Pérez",
-      date: "18 de Septiembre, 2023",
-      url: "https://ejemplo.com/articulo2"
-    },
-    {
-      title: "La Revolución de las Criptomonedas",
-      abstract: "Las criptomonedas han revolucionado el mundo financiero. En este artículo, echamos un vistazo a cómo comenzaron, dónde están ahora y a dónde podrían ir en el futuro.",
-      author: "Linda García",
-      date: "15 de Septiembre, 2023",
-      url: "https://ejemplo.com/articulo3"
-    }
-  ];
-
   return (
     <NextUIProvider>
-      <NavBar />
       <div className='flex flex-col items-center justify-center h-full mt-14 pb-10'>
         <Dropdown visible={visible} type={type} setType={setType} />
         <Image
